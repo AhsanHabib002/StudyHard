@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import heroimage from "../assets/mainimage.png";
 import assignmentImage from "../assets/assignment-cta.png";
