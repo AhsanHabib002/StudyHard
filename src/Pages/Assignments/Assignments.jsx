@@ -16,7 +16,7 @@ const Assignments = () => {
   return (
     <div className="max-w-[90rem] mx-auto">
       <div className="mt-[60px] md:mt-[120px] px-[30px] md:px-[60px]">
-        <h2 className="text-4xl font-bold">
+        <h2 className="text-2xl md:text-4xl font-bold">
           All Assignments: {assignments.length}
         </h2>
         <div className="mt-[30px] md:mt-[60px]">

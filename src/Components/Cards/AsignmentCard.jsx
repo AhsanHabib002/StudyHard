@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const AsignmentCard = ({ assignment }) => {
-  const { title, thumbnail, marks, difficulty } = assignment;
+  const { _id, title, thumbnail, marks, difficulty } = assignment;
   return (
     <div>
       <div className="card card-compact bg-base-100 shadow-xl">
@@ -24,7 +24,7 @@ const AsignmentCard = ({ assignment }) => {
             </Link>
           </div>
           <div className="card-actions flex">
-            <Link to="" className="w-full">
+            <Link to={`/assignments/${_id} `}className="w-full">
               <button className="btn w-full bg-[#B9FF66]">View Assignment</button>
             </Link>
           </div>

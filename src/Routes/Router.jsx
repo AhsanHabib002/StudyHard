@@ -4,6 +4,9 @@ import Home from "../Pages/Home";
 import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import Assignments from "../Pages/Assignments/Assignments";
+import PrivateRoute from "./PrivateRoute";
+import AssignmentsDetail from "../Pages/Assignments/AssignmentsDetail";
+import SubmitAssignment from "../Pages/Assignments/SubmitAssignment";
 
 const Router = createBrowserRouter([
   {
@@ -22,6 +25,18 @@ const Router = createBrowserRouter([
                 const response = await fetch("http://localhost:5000/assignments");
                 return response.json();
             },
+        },
+        {
+            path:"/assignments/:id",
+            element:(<PrivateRoute>
+                <AssignmentsDetail></AssignmentsDetail>
+            </PrivateRoute>),
+        },
+        {
+            path:"/submit-assignments/:id",
+            element:(<PrivateRoute>
+                <SubmitAssignment></SubmitAssignment>
+            </PrivateRoute>),
         },
         {
             path:"register",
