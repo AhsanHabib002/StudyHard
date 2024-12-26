@@ -8,7 +8,7 @@ const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   return (
     <div>
-      <div className="navbar bg-[#E8FCD0]">
+      <div className="navbar bg-[#E8FCD0] px-[10px] md:px-[30px]">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -34,7 +34,7 @@ const Navbar = () => {
               <NavLink to="/" className="font-medium mx-3">
                 Home
               </NavLink>
-              <NavLink to="/" className="font-medium mx-3">
+              <NavLink to="/assignments" className="font-medium mx-3">
                 Assignments
               </NavLink>
               <NavLink to="/" className="font-medium mx-3">
@@ -42,7 +42,7 @@ const Navbar = () => {
               </NavLink>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <a className="text-xl font-bold">Studyhard</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -50,7 +50,7 @@ const Navbar = () => {
               <NavLink to="/" className="font-medium mx-3">
                 Home
               </NavLink>
-              <NavLink to="/" className="font-medium mx-3">
+              <NavLink to="/assignments" className="font-medium mx-3">
                 Assignments
               </NavLink>
               <NavLink to="/" className="font-medium mx-3">

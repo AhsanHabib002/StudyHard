@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { FaEye } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
@@ -8,6 +8,8 @@ import AuthContext from "../../Context/AuthContext/AuthContext";
 
 const Login = () => {
   const { userLogin, setUser, googleLogin } = useContext(AuthContext);
+  const location = useLocation();
+  const from = location.state || '/';
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [show, setShow] = useState(false);
@@ -25,7 +27,7 @@ const Login = () => {
         const user = result.user;
         setUser(user);
         setTimeout(() => {
-          navigate("/");
+          navigate(from);
         }, 2000);
         Swal.fire("Logger In", "Your Login is Successful.", "success");
       })
@@ -49,7 +51,7 @@ const Login = () => {
         const user = result.user;
         setUser(user);
         setTimeout(() => {
-          navigate("/");
+          navigate(from);
         }, 2000);
         toast.success("Login Successful");
       })

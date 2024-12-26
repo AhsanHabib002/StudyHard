@@ -40,10 +40,20 @@ const AuthProvider = ({ children }) => {
       setUser(currentuser);
       if(currentuser?.email){
         const user = {email: currentuser.email};
-        axios.post('http://localhost:5000/jwt', user)
-        .then(res => console.log(res.data))
+        axios.post('http://localhost:5000/jwt', user,{withCredentials:true})
+        .then(res => {
+            console.log(res.data);
+            setLoading(false);
+        })
       }
-      setLoading(false);
+      else{
+        axios.post('http://localhost:5000/logout', {}, {withCredentials: true})
+        .then(res=>{
+            console.log(res.data);
+            setLoading(false);
+        })
+      }
+      
     });
     return () => {
       unsubscribe();
