@@ -73,7 +73,7 @@ const Navbar = () => {
                   />
                 </summary>
                 <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                  <NavLink to="/">
+                  <NavLink to="/create-assignment">
                     Create Assignment
                   </NavLink>
                   <NavLink to="/my-assignment">

@@ -9,6 +9,8 @@ import AssignmentsDetail from "../Pages/Assignments/AssignmentsDetail";
 import SubmitAssignment from "../Pages/Assignments/SubmitAssignment";
 import MySubmission from "../Pages/Assignments/MySubmission";
 import PendingAssignments from "../Pages/Pendings/PendingAssignments";
+import GiveMarks from "../Pages/Pendings/GiveMarks";
+import AddAssignment from "../Pages/Assignments/AddAssignment";
 
 const Router = createBrowserRouter([
   {
@@ -47,9 +49,21 @@ const Router = createBrowserRouter([
             </PrivateRoute>),
         },
         {
+            path:"/create-assignment",
+            element:(<PrivateRoute>
+                <AddAssignment></AddAssignment>
+            </PrivateRoute>),
+        },
+        {
             path:"/pending-assignments",
             element:(<PrivateRoute>
                 <PendingAssignments></PendingAssignments>
+            </PrivateRoute>),
+        },
+        {
+            path:"/give-marks/:id",
+            element:(<PrivateRoute>
+                <GiveMarks></GiveMarks>
             </PrivateRoute>),
         },
         {

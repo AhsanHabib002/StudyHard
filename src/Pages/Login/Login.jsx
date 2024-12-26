@@ -17,7 +17,6 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (!validateForm()) return;
     const form = new FormData(e.target);
     const name = form.get("name");
     const email = form.get("email");
