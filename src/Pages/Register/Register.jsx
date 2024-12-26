@@ -18,6 +18,24 @@ const Register = () => {
     const photo = form.get("photo");
     const password = form.get("password");
 
+    if (!name) {
+      setError("Name is required.");
+      return;
+    }
+    if (!photo) {
+      setError("Photo URL is required.");
+      return;
+    }
+    if (!email) {
+      setError("Email is required.");
+      return;
+    }
+
+    if (!password) {
+        setError("Password is required.");
+        return;
+    }
+
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!passwordRegex.test(password)) {
       setError(
@@ -27,18 +45,18 @@ const Register = () => {
     }
     setError("");
     createNewUser(email, password)
-    .then((result) => {
-      const user = result.user;
-      setUser(user);
-      updateUserProfile({ displayName: name, photoURL: photo });
-      toast.success("Resgitration Successful");
-      setTimeout(() => {
-        navigate("/");
-      }, 2000);
-    })
-    .catch((error) => {
-      toast.error(`Error: ${error.message}`);
-    });
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+        updateUserProfile({ displayName: name, photoURL: photo });
+        toast.success("Resgitration Successful");
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
+      })
+      .catch((error) => {
+        toast.error(`Error: ${error.message}`);
+      });
   };
   return (
     <div className="max-w-[90rem] mx-auto">
@@ -110,7 +128,7 @@ const Register = () => {
           </form>
           <div className="px-8 w-full">
             <div className="divider"></div>
-            
+
             <div className="flex gap-2 mt-4 text-sm  mb-6">
               <p>Already have an account?</p>
               <div className="font-semibold text-[#6980ff]">

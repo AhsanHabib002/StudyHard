@@ -53,7 +53,7 @@ const Navbar = () => {
               <NavLink to="/assignments" className="font-medium mx-3">
                 Assignments
               </NavLink>
-              <NavLink to="/" className="font-medium mx-3">
+              <NavLink to="/pending-assignments" className="font-medium mx-3">
                 Pending Assignments
               </NavLink>
             </div>
@@ -76,7 +76,7 @@ const Navbar = () => {
                   <NavLink to="/">
                     Create Assignment
                   </NavLink>
-                  <NavLink to="/">
+                  <NavLink to="/my-assignment">
                     My Assignment
                   </NavLink>
                   

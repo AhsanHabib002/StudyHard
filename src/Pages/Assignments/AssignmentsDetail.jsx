@@ -11,11 +11,11 @@ const AssignmentsDetail = () => {
       .get(`http://localhost:5000/assignments/${id}`, { withCredentials: true })
       .then((res) => {
         setAssignment(res.data);
-        setLoading(flase);
+        setLoading(false);
       })
       .catch((err) => {
         console.error(err);
-        setLoading(false); // Stop loading even if there is an error
+        setLoading(false); 
       });
   }, [id]);
   if (loading) {

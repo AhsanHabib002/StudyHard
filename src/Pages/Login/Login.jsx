@@ -9,7 +9,7 @@ import AuthContext from "../../Context/AuthContext/AuthContext";
 const Login = () => {
   const { userLogin, setUser, googleLogin } = useContext(AuthContext);
   const location = useLocation();
-  const from = location.state || '/';
+  const from = location.state || "/";
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [show, setShow] = useState(false);
@@ -17,11 +17,20 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    if (!validateForm()) return;
     const form = new FormData(e.target);
     const name = form.get("name");
     const email = form.get("email");
     const photo = form.get("photo");
     const password = form.get("password");
+    if (!email) {
+      setError("Email is required.");
+      return;
+    }
+    if (!password) {
+      setError("Password is required.");
+      return;
+    }
     userLogin(email, password)
       .then((result) => {
         const user = result.user;
@@ -111,9 +120,10 @@ const Login = () => {
           </form>
           <div className="px-8 w-full">
             <div className="divider"></div>
-            <button 
-            onClick={handleGoogleLogin}
-            className="btn btn-outline w-full">
+            <button
+              onClick={handleGoogleLogin}
+              className="btn btn-outline w-full"
+            >
               Login With Google
             </button>
 
