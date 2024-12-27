@@ -7,14 +7,16 @@ const GiveMarks = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [assignment, setAssignments] = useState([]);
-  const [obtainedMarks, setObtainedMarks] = useState("");
+  const [obtainmarks, setObtainmarks] = useState("");
   const [feedback, setFeedback] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
     axios
-      .get(`https://study-hard-server.vercel.app/submission/${id}`, { withCredentials: true })
+      .get(`https://study-hard-server.vercel.app/submission/${id}`, {
+        withCredentials: true,
+      })
       .then((res) => {
         setAssignments(res.data);
         setLoading(false);
@@ -22,12 +24,12 @@ const GiveMarks = () => {
   }, [id]);
   const handleMark = (e) => {
     e.preventDefault();
-    if (!obtainedMarks || !feedback) {
+    if (!obtainmarks || !feedback) {
       setError("Marks and Feedback must be given");
       return;
     }
     const updatedSubmission = {
-      obtainedMarks,
+        obtainmarks,
       feedback,
       status: "completed",
     };
@@ -97,9 +99,9 @@ const GiveMarks = () => {
               </label>
               <input
                 type="number"
-                id="obtainedMarks"
-                value={obtainedMarks}
-                onChange={(e) => setObtainedMarks(e.target.value)}
+                id="obtainmarks"
+                value={obtainmarks}
+                onChange={(e) => setObtainmarks(e.target.value)}
                 className="input input-bordered w-full mt-2"
                 required
               />

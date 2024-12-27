@@ -62,7 +62,7 @@ const MySubmission = () => {
                       {submit.marks || "N/A"}
                     </td>
                     <td className="px-4 py-2 border">
-                      {submit.obtainedMarks || "N/A"}
+                      {submit.obtainmarks || "N/A"}
                     </td>
                     <td className="px-4 py-2 border">
                       {submit.feedback || "No feedback yet"}
