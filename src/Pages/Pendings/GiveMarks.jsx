@@ -38,7 +38,12 @@ const GiveMarks = () => {
         { withCredentials: true }
       )
       .then((res) => {
-        if (res.data) {
+        if (res.data.success) {
+          Swal.fire({
+            icon: "success",
+            title: "Success!",
+            text: res.data.message || "Marks submitted successfully!",
+          });
           navigate("/pending-assignments");
         } else {
           Swal.fire({
@@ -47,6 +52,15 @@ const GiveMarks = () => {
             text: "Failed to submit Mark. Please try again.",
           });
         }
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Error!",
+          text:
+            error.response?.data?.message ||
+            "An unexpected error occurred. Please try again later.",
+        });
       });
   };
   return (

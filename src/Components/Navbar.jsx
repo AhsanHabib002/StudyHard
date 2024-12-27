@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AuthContext from "../Context/AuthContext/AuthContext";
 import { Link, NavLink } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
@@ -6,6 +6,19 @@ import "react-tooltip/dist/react-tooltip.css";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") || "light-theme"
+  );
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
+
+  const togglebutton = () => {
+    const newTheme = theme === "light-theme" ? "dark-theme" : "light-theme";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme); 
+  };
   return (
     <div>
       <div className="navbar bg-[#E8FCD0] px-[10px] md:px-[30px]">
@@ -73,13 +86,14 @@ const Navbar = () => {
                   />
                 </summary>
                 <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                  <NavLink to="/create-assignment">
-                    Create Assignment
-                  </NavLink>
-                  <NavLink to="/my-assignment">
-                    My Assignment
-                  </NavLink>
-                  
+                  <NavLink to="/create-assignment">Create Assignment</NavLink>
+                  <NavLink to="/my-assignment">My Assignment</NavLink>
+                  <button
+                    onClick={togglebutton}
+                    className="btn theme-toggle-btn"
+                  >
+                    {theme === "light-theme" ? "Dark" : "Light"}
+                  </button>
                 </ul>
               </details>
               <Tooltip

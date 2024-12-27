@@ -6,11 +6,11 @@ const Assignments = () => {
   const assignments = useLoaderData();
 
   const [loading, setLoading] = useState(true);
-    useEffect(() => {
-      if (assignments) {
-        setLoading(false);
-      }
-    }, [assignments]);
+  useEffect(() => {
+    if (assignments) {
+      setLoading(false);
+    }
+  }, [assignments]);
   
   if (loading) {
     return <span className="loading loading-spinner loading-lg"></span>;
@@ -22,7 +22,6 @@ const Assignments = () => {
           All Assignments: {assignments.length}
         </h2>
         {/* filter */}
-        
 
         <div className="mt-[30px] md:mt-[60px]">
           <div className="grid grid-cols-1 gap-[30px] sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

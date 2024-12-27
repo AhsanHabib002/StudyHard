@@ -1,5 +1,7 @@
+import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AsignmentCard = ({ assignment }) => {
   const { _id, title, thumbnail, marks, difficulty } = assignment;
@@ -20,12 +22,7 @@ const AsignmentCard = ({ assignment }) => {
           })
           .then((response) => {
             if (response.data.success) {
-              Swal.fire("Deleted!", response.data.message, "success").then(
-                () => {
-                  // Optionally, refresh the page or re-fetch assignments list
-                  window.location.reload();
-                }
-              );
+              Swal.fire("Deleted!", response.data.message, "success");
             } else {
               Swal.fire("Failed!", response.data.message, "error");
             }
@@ -59,7 +56,9 @@ const AsignmentCard = ({ assignment }) => {
               <button className="btn bg-[#ACCDFF] w-full">Update</button>
             </Link>
 
-            <button onClick={handleDelete} className="btn w-full bg-[#F85959]">Delete</button>
+            <button onClick={handleDelete} className="btn w-full bg-[#F85959]">
+              Delete
+            </button>
           </div>
           <div className="card-actions flex">
             <Link to={`/assignments/${_id} `} className="w-full">
