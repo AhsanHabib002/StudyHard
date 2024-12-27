@@ -14,7 +14,7 @@ const GiveMarks = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/submission/${id}`, { withCredentials: true })
+      .get(`https://study-hard-server.vercel.app/submission/${id}`, { withCredentials: true })
       .then((res) => {
         setAssignments(res.data);
         setLoading(false);
@@ -33,7 +33,7 @@ const GiveMarks = () => {
     };
     axios
       .put(
-        `http://localhost:5000/submission/${assignment._id}`,
+        `https://study-hard-server.vercel.app/submission/${assignment._id}`,
         updatedSubmission,
         { withCredentials: true }
       )

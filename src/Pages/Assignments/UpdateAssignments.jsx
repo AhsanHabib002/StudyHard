@@ -13,7 +13,7 @@ const UpdateAssignments = () => {
   const [dueDate, setDueDate] = useState(new Date());
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/assignments/${id}`, { withCredentials: true })
+      .get(`https://study-hard-server.vercel.app/assignments/${id}`, { withCredentials: true })
       .then((res) => {
         setUpdateAssignment(res.data);
         setDueDate(new Date(res.data.dueDate));
@@ -34,7 +34,7 @@ const UpdateAssignments = () => {
       dueDate,
     };
     axios
-      .put(`http://localhost:5000/assignments/${id}`, updatedAssignment, {
+      .put(`https://study-hard-server.vercel.app/assignments/${id}`, updatedAssignment, {
         withCredentials: true,
       })
       .then((res) => {

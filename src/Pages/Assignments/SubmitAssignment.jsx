@@ -23,7 +23,7 @@ const SubmitAssignment = () => {
     };
 
     axios
-      .post("http://localhost:5000/submissions", submitInfo, {
+      .post("https://study-hard-server.vercel.app/submissions", submitInfo, {
         withCredentials: true,
       })
       .then((response) => {

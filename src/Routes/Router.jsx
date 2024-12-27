@@ -12,6 +12,7 @@ import PendingAssignments from "../Pages/Pendings/PendingAssignments";
 import GiveMarks from "../Pages/Pendings/GiveMarks";
 import AddAssignment from "../Pages/Assignments/AddAssignment";
 import UpdateAssignments from "../Pages/Assignments/UpdateAssignments";
+import Error from "../Pages/Error";
 
 const Router = createBrowserRouter([
   {
@@ -27,7 +28,7 @@ const Router = createBrowserRouter([
             path:"assignments",
             element: <Assignments></Assignments>,
             loader: async () => {
-                const response = await fetch("http://localhost:5000/assignments");
+                const response = await fetch("https://study-hard-server.vercel.app/assignments");
                 return response.json();
             },
         },

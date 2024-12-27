@@ -17,7 +17,7 @@ const AsignmentCard = ({ assignment }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/assignments/${_id}`, {
+          .delete(`https://study-hard-server.vercel.app/assignments/${_id}`, {
             withCredentials: true,
           })
           .then((response) => {

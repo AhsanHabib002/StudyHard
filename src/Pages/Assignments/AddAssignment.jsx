@@ -44,7 +44,7 @@ const AddAssignment = () => {
       username: user?.displayName || "Anonymous",
     };
     axios
-      .post("http://localhost:5000/assignments", assignmentData, {
+      .post("https://study-hard-server.vercel.app/assignments", assignmentData, {
         withCredentials: true,
       })
       .then((res) => {

@@ -8,7 +8,7 @@ const PendingAssignments = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://localhost:5000/pending-assignments", {
+    axios.get("https://study-hard-server.vercel.app/pending-assignments", {
       withCredentials: true,
     })
     .then((res) => {

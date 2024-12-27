@@ -9,7 +9,7 @@ const MySubmission = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/mysubmission?email=${user.email}`, {
+      .get(`https://study-hard-server.vercel.app/mysubmission?email=${user.email}`, {
         withCredentials: true,
       })
       .then((res) => {

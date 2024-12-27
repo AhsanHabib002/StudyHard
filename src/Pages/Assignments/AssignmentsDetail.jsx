@@ -8,7 +8,7 @@ const AssignmentsDetail = () => {
   const [assignment, setAssignment] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/assignments/${id}`, { withCredentials: true })
+      .get(`https://study-hard-server.vercel.app/assignments/${id}`, { withCredentials: true })
       .then((res) => {
         setAssignment(res.data);
         setLoading(false);
