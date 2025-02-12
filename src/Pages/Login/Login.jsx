@@ -70,7 +70,7 @@ const Login = () => {
 
   return (
     <div className="max-w-[90rem] mx-auto">
-      <div className="max-w-[450px] mx-auto py-[90px] px-2">
+      <div className="max-w-[450px] mx-auto pt-[120px] px-2">
         <ToastContainer />
         <div className="card bg-base-100 w-full  shrink-0 shadow-2xl">
           <form onSubmit={handleLogin} className="card-body">

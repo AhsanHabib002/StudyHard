@@ -45,7 +45,7 @@ const SubmitAssignment = () => {
   };
   return (
     <div className="max-w-[90rem] mx-auto">
-      <div className="mt-[60px] md:mt-[120px] px-[30px] md:px-[60px]">
+      <div className="mt-[120px] md:mt-[160px] px-[30px] md:px-[60px]">
         <div class="card bg-base-100 w-full  shrink-0 shadow-2xl">
           <h2 className="text-2xl md:text-4xl font-bold p-[30px]">
             Submit the following informations:

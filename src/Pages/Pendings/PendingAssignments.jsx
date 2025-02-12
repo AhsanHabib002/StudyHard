@@ -8,26 +8,35 @@ const PendingAssignments = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setLoading(false); // Ensure loading spinner stays for 2 seconds
-    }, 2000);
-    axios.get("https://study-hard-server.vercel.app/pending-assignments", {
-      withCredentials: true,
-    })
-    .then((res) => {
-        setpendingAssignments(res.data);
-        setLoading(false);
-      })
+    setLoading(true);
+    setTimeout(() => {
+      axios
+        .get("https://study-hard-server.vercel.app/pending-assignments", {
+          withCredentials: true,
+        })
+        .then((res) => {
+          setpendingAssignments(res.data);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+          setLoading(false);
+        });
+    }, 500); 
   }, []);
   if (loading) {
-    return  <div className="w-full flex justify-center items-center"><span className="loading loading-spinner loading-lg"></span></div>;
+    return  (
+      <div className="w-full flex justify-center items-center mt-[120px] md:mt-[160px]">
+      <span className="loading loading-spinner loading-lg"></span>
+    </div>
+    );
   }
   const handleMarks = (id) => {
     navigate(`/give-marks/${id}`);
   };
   return (
     <div className="max-w-[90rem] mx-auto">
-      <div className="mt-[60px] md:mt-[120px] px-[30px] md:px-[60px]">
+      <div className="mt-[120px] md:mt-[160px] px-[30px] md:px-[60px]">
         <h2 className="text-2xl md:text-4xl font-bold">
           Pending Assignments: {pendingAssignments.length}
         </h2>

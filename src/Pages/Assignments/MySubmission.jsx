@@ -23,14 +23,14 @@ const MySubmission = () => {
   }, [user.email]);
   return (
     <div className="max-w-[90rem] mx-auto">
-      <div className="mt-[60px] md:mt-[120px] px-[30px] md:px-[60px]">
+      <div className="mt-[120px] md:mt-[160px] px-[30px] md:px-[60px]">
         <h2 className="text-2xl md:text-4xl font-bold mb-[30px] md:mb-[60px]">
           My Submissions: {submission.length}
         </h2>
 
         {loading ? (
           <div className="flex justify-center items-center h-64">
-            <p className="text-lg">Loading...</p>
+            <div className="w-full flex justify-center items-center"><span className="loading loading-spinner loading-lg"></span></div>
           </div>
         ) : submission.length === 0 ? (
           <div className="text-center mt-16">

@@ -23,7 +23,7 @@ const AssignmentsDetail = () => {
   }
   return (
     <div className="max-w-[90rem] mx-auto">
-      <div className="mt-[60px] md:mt-[120px] px-[30px] md:px-[60px]">
+      <div className="mt-[120px] md:mt-[160px] px-[30px] md:px-[60px]">
         <div className="flex flex-col gap-[15px]">
           <h2 className="text-2xl md:text-4xl font-bold">{assignment.title}</h2>
           <img
