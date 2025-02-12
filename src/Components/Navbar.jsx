@@ -3,6 +3,7 @@ import AuthContext from "../Context/AuthContext/AuthContext";
 import { Link, NavLink } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
+import { HashLink } from "react-router-hash-link";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -50,9 +51,13 @@ const Navbar = () => {
               <NavLink to="/assignments" className="font-medium mx-3">
                 Assignments
               </NavLink>
-              <NavLink to="/" className="font-medium mx-3">
+              <NavLink to="/pending-assignments" className="font-medium mx-3">
                 Pending Assignments
               </NavLink>
+              
+              <HashLink to="/#team" className="font-medium mx-3">
+                Team
+              </HashLink>
             </ul>
           </div>
           <a className="text-xl font-bold">Studyhard</a>
@@ -69,6 +74,9 @@ const Navbar = () => {
               <NavLink to="/pending-assignments" className="font-medium mx-3">
                 Pending Assignments
               </NavLink>
+              <HashLink to="/#team" className="font-medium mx-3">
+                Team
+              </HashLink>
               <button onClick={togglebutton} className=" theme-toggle-btn">
                 {theme === "light-theme" ? "Dark" : "Light"}
               </button>

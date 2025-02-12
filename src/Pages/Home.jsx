@@ -5,8 +5,10 @@ import contactimage from "../assets/contact-image.png";
 import team1 from "../assets/team-1.png";
 import team2 from "../assets/team-2.png";
 import team3 from "../assets/team-3.png";
+import { useEffect } from "react";
 
 const Home = () => {
+  
   return (
     <div className="pt-[60px] md:pt-[120px]">
       {/* Hero section */}
@@ -219,7 +221,7 @@ const Home = () => {
         </div>
       </div>
       {/* Team */}
-      <div className="max-w-[90rem] mx-auto">
+      <div id="team" className="max-w-[90rem] mx-auto">
         <div className="mt-[60px] md:mt-[120px] px-[30px] md:px-[90px]">
           <div>
             <h2 className="text-2xl md:text-4xl font-bold">
@@ -282,7 +284,7 @@ const Home = () => {
         </div>
       </div>
       {/* create assignment CTA */}
-      <div className="max-w-[90rem] mx-auto">
+      <div  className="max-w-[90rem] mx-auto">
         <div className="mt-[60px] md:mt-[120px] px-[30px] md:px-[90px]">
           <div className="rounded-[45px] bg-[#F3F3F3] p-[30px] md:p-[60p] flex flex-col md:flex-row justify-end items-center md:items-center">
             {/* cta content */}
