@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import heroimage from "../assets/mainimage.png";
 import assignmentImage from "../assets/assignment-cta.png";
 import contactimage from "../assets/contact-image.png";
+import team1 from "../assets/team-1.png";
+import team2 from "../assets/team-2.png";
+import team3 from "../assets/team-3.png";
 
 const Home = () => {
   return (
@@ -215,6 +218,69 @@ const Home = () => {
           </div>
         </div>
       </div>
+      {/* Team */}
+      <div className="max-w-[90rem] mx-auto">
+        <div className="mt-[60px] md:mt-[120px] px-[30px] md:px-[90px]">
+          <div>
+            <h2 className="text-2xl md:text-4xl font-bold">
+              Team Who build <span className="text-[#a9f027]">StudyHard</span>
+            </h2>
+          </div>
+
+          <div className="mt-[30px] md:mt-[90px]">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-[30px]">
+              <div className="bg-[#F3F3F3] border border-black border-b-2 rounded-[45px] p-[30px] flex flex-col gap-[10px]">
+                <div className="flex gap-[15px] items-end">
+                  <div >
+                    <img src={team1} alt="" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-[20px]">John Smith</h3>
+                    <p>CEO & Founder</p>
+                  </div>
+                </div>
+                <div className="divider"></div>
+                <div>
+                  <p>10+ years of experience in digital marketing. Expertise in SEO, PPC, and content strategy</p>
+                </div>
+              </div>
+
+              <div className="bg-[#F3F3F3] border border-black border-b-2 rounded-[45px] p-[30px] flex flex-col gap-[10px]">
+                <div className="flex gap-[15px] items-end">
+                  <div >
+                    <img src={team2} alt="" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-[20px]">Jane Doe</h3>
+                    <p>Director of Operations</p>
+                  </div>
+                </div>
+                <div className="divider"></div>
+                <div>
+                  <p>7+ years of experience in project management and team leadership. Strong organizational and communication skills</p>
+                </div>
+              </div>
+
+              <div className="bg-[#F3F3F3] border border-black border-b-2 rounded-[45px] p-[30px] flex flex-col gap-[10px]">
+                <div className="flex gap-[15px] items-end">
+                  <div >
+                    <img src={team3} alt="" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-[20px]">Michael Brown</h3>
+                    <p>Senior SEO Specialist</p>
+                  </div>
+                </div>
+                <div className="divider"></div>
+                <div>
+                  <p>5+ years of experience in SEO and content creation. Proficient in keyword research and on-page optimization</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
       {/* create assignment CTA */}
       <div className="max-w-[90rem] mx-auto">
         <div className="mt-[60px] md:mt-[120px] px-[30px] md:px-[90px]">
@@ -334,7 +400,7 @@ const Home = () => {
               Still Have a Question?
             </h2>
           </div>
-          <div className="rounded-t-[45px] bg-[#F3F3F3] mt-[30px] md:mt-[90px] py-[30px] md:py-[60px] pl-[30px] md:pl-[60px]">
+          <div className="rounded-t-[45px] bg-[#F3F3F3] mt-[30px] md:mt-[90px] py-[30px] md:py-[60px] md:pl-[60px]">
             <div className="flex flex-col md:flex-row justify-end">
               {/* form Content */}
               <div className="flex-1">
