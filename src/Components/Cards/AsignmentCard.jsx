@@ -48,7 +48,7 @@ const AsignmentCard = ({ assignment }) => {
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">{title}</h2>
+          <h2 className="card-title h-[50px]">{title}</h2>
           <p>Difficultly: {difficulty}</p>
           <p>Mark: {marks}</p>
           <div className="card-actions grid grid-cols-1 md:grid-cols-2">

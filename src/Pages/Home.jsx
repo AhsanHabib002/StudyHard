@@ -5,12 +5,12 @@ import contactimage from "../assets/contact-image.png";
 import team1 from "../assets/team-1.png";
 import team2 from "../assets/team-2.png";
 import team3 from "../assets/team-3.png";
-import { useEffect } from "react";
+
 
 const Home = () => {
   
   return (
-    <div className="pt-[60px] md:pt-[120px]">
+    <div className="pt-[120px] md:pt-[160px]">
       {/* Hero section */}
       <div className="pl-[30px] md:pl-[90px] grid grid-cols-1 gap-[30px] md:grid-cols-2 items-center">
         {/* Hero content */}

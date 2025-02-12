@@ -8,6 +8,9 @@ const PendingAssignments = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(false); // Ensure loading spinner stays for 2 seconds
+    }, 2000);
     axios.get("https://study-hard-server.vercel.app/pending-assignments", {
       withCredentials: true,
     })
@@ -17,7 +20,7 @@ const PendingAssignments = () => {
       })
   }, []);
   if (loading) {
-    return <span className="loading loading-spinner loading-lg"></span>;
+    return  <div className="w-full flex justify-center items-center"><span className="loading loading-spinner loading-lg"></span></div>;
   }
   const handleMarks = (id) => {
     navigate(`/give-marks/${id}`);

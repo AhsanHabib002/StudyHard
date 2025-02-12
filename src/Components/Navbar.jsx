@@ -22,7 +22,7 @@ const Navbar = () => {
   };
   return (
     <div>
-      <div className="navbar bg-[#E8FCD0] px-[10px] md:px-[30px]">
+      <div className="navbar bg-[#E8FCD0] px-[10px] md:px-[30px] fixed top-0 z-50">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -45,19 +45,22 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-              <NavLink to="/" className="font-medium mx-3">
+              <NavLink to="/" className="font-medium mx-3 my-2">
                 Home
               </NavLink>
-              <NavLink to="/assignments" className="font-medium mx-3">
+              <NavLink to="/assignments" className="font-medium mx-3 my-2">
                 Assignments
               </NavLink>
-              <NavLink to="/pending-assignments" className="font-medium mx-3">
+              <NavLink to="/pending-assignments" className="font-medium mx-3 my-2">
                 Pending Assignments
               </NavLink>
               
-              <HashLink to="/#team" className="font-medium mx-3">
+              <HashLink to="/#team" className="font-medium mx-3 my-2">
                 Team
               </HashLink>
+              <button onClick={togglebutton} className=" theme-toggle-btn font-medium mx-3 my-2">
+                {theme === "light-theme" ? "Dark" : "Light"}
+              </button>
             </ul>
           </div>
           <a className="text-xl font-bold">Studyhard</a>
@@ -77,7 +80,7 @@ const Navbar = () => {
               <HashLink to="/#team" className="font-medium mx-3">
                 Team
               </HashLink>
-              <button onClick={togglebutton} className=" theme-toggle-btn">
+              <button onClick={togglebutton} className=" theme-toggle-btn font-medium mx-3">
                 {theme === "light-theme" ? "Dark" : "Light"}
               </button>
             </div>
@@ -97,8 +100,8 @@ const Navbar = () => {
                   />
                 </summary>
                 <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                  <NavLink to="/create-assignment">Create Assignment</NavLink>
-                  <NavLink to="/my-assignment">My Assignment</NavLink>
+                  <NavLink to="/create-assignment" className="font-medium mx-3 my-2">Create Assignment</NavLink>
+                  <NavLink to="/my-assignment" className="font-medium mx-3 my-2">My Assignment</NavLink>
                 </ul>
               </details>
               <Tooltip
