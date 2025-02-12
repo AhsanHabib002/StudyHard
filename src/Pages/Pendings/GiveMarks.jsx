@@ -67,7 +67,7 @@ const GiveMarks = () => {
   };
   return (
     <div className="max-w-[90rem] mx-auto">
-      <div className="mt-[120px] md:mt-[160px] px-[30px] md:px-[60px]">
+      <div className="pt-[120px] md:pt-[160px] px-[30px] md:px-[60px]">
         <h2 className="text-2xl md:text-4xl font-bold">Mark Assignment</h2>
         <div className="mt-[30px] md:mt-[60px]">
           <div className="mb-6">

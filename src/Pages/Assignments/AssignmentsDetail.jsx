@@ -25,14 +25,14 @@ const AssignmentsDetail = () => {
   }, [id]);
   if (loading) {
     return (
-      <div className="w-full flex justify-center items-center mt-[120px] md:mt-[160px]">
+      <div className="w-full flex justify-center items-center pt-[120px] md:pt-[160px]">
       <span className="loading loading-spinner loading-lg"></span>
     </div>
     );
   }
   return (
     <div className="max-w-[90rem] mx-auto">
-      <div className="mt-[120px] md:mt-[160px] px-[30px] md:px-[60px]">
+      <div className="pt-[120px] md:pt-[160px] px-[30px] md:px-[60px]">
         <div className="flex flex-col gap-[15px]">
           <h2 className="text-2xl md:text-4xl font-bold">{assignment.title}</h2>
           <img
