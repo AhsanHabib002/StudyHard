@@ -23,7 +23,7 @@ const Home = () => {
             compete with fellow students on a platform designed to maximize your
             learning and boost your grades.
           </p>
-          <Link to="/">
+          <Link to="/assignments">
             <button className="btn text-white bg-[#191A23] hover:bg-[#B9FF66] hover:text-[#191A23]">
               View Assignments
             </button>
@@ -297,7 +297,7 @@ const Home = () => {
                 an upcoming exam? Create custom assignments on "studyHard" to
                 reinforce your learning and track your progress.
               </p>
-              <Link to="/">
+              <Link to="/create-assignment">
                 <button className="btn text-white bg-[#191A23] hover:bg-[#B9FF66] hover:text-[#191A23]">
                   Create Assignments
                 </button>
@@ -317,7 +317,7 @@ const Home = () => {
             <h2 className="text-2xl font-bold md:text-4xl">
               Frequently Ask Questions
             </h2>
-            <div className="mt-[60px] flex flex-col gap-[15px]">
+            <div className="mt-[30px] md:mt-[90px] flex flex-col gap-[15px]">
               <div className="collapse collapse-plus bg-base-200 border border-black border-1 border-b-[4px]">
                 <input type="radio" name="my-accordion-3" defaultChecked />
                 <div className="collapse-title text-xl font-medium">
