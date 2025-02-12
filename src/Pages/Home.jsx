@@ -5,7 +5,7 @@ import contactimage from "../assets/contact-image.png";
 
 const Home = () => {
   return (
-    <div>
+    <div className="pt-[60px] md:pt-[120px]">
       {/* Hero section */}
       <div className="pl-[30px] md:pl-[90px] grid grid-cols-1 gap-[30px] md:grid-cols-2 items-center">
         {/* Hero content */}
@@ -162,6 +162,53 @@ const Home = () => {
                     </svg>
                   </div>
                   <p className="font-medium">Learn more</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Benefits */}
+      <div className="max-w-[90rem] mx-auto">
+        <div className="mt-[60px] md:mt-[120px] px-[30px] md:px-[90px]">
+          <div >
+            <h2 className="text-2xl md:text-4xl font-bold">
+              Benefits by Joining{" "}
+              <span className="text-[#a9f027]">StudyHard</span>
+            </h2>
+          </div>
+          <div className="mt-[30px] md:mt-[90px]">
+            <div className="bg-[#191A23] rounded-[45px] px-[30px] py-[30px] md:px-[60px] md:py-[70px]">
+              <div className="grid grid-cols-1 gap-[30px] md:grid-cols-3">
+                <div className="text-white flex flex-col gap-[30px]">
+                  <h3 className="text-[20px]  md:text-[22px] font-semibold ">
+                    Improved Learning & Collaboration
+                  </h3>
+                  <p>
+                    Students can create, submit, and review assignments, gaining
+                    insights from peer evaluations while enhancing their
+                    problem-solving skills.
+                  </p>
+                </div>
+                <div className="text-white flex flex-col gap-[30px] border-l-2 border-white pl-[10px]">
+                  <h3 className="text-[20px]  md:text-[22px] font-semibold ">
+                    Secure & Private Workspace
+                  </h3>
+                  <p>
+                    With JWT-based authentication, students can safely manage
+                    their assignments, ensuring only authorized access to their
+                    academic progress.
+                  </p>
+                </div>
+                <div className="text-white flex flex-col gap-[30px] border-l-2 border-white pl-[10px]">
+                  <h3 className="text-[20px]  md:text-[22px] font-semibold ">
+                    Enhanced User Experience
+                  </h3>
+                  <p>
+                    The platform offers a seamless, responsive design with
+                    dark/light mode options, making learning accessible on any
+                    device.
+                  </p>
                 </div>
               </div>
             </div>

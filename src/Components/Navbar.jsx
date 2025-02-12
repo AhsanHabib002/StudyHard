@@ -17,7 +17,7 @@ const Navbar = () => {
   const togglebutton = () => {
     const newTheme = theme === "light-theme" ? "dark-theme" : "light-theme";
     setTheme(newTheme);
-    localStorage.setItem("theme", newTheme); 
+    localStorage.setItem("theme", newTheme);
   };
   return (
     <div>
@@ -69,6 +69,9 @@ const Navbar = () => {
               <NavLink to="/pending-assignments" className="font-medium mx-3">
                 Pending Assignments
               </NavLink>
+              <button onClick={togglebutton} className=" theme-toggle-btn">
+                {theme === "light-theme" ? "Dark" : "Light"}
+              </button>
             </div>
           </ul>
         </div>
@@ -88,12 +91,6 @@ const Navbar = () => {
                 <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                   <NavLink to="/create-assignment">Create Assignment</NavLink>
                   <NavLink to="/my-assignment">My Assignment</NavLink>
-                  <button
-                    onClick={togglebutton}
-                    className="btn theme-toggle-btn"
-                  >
-                    {theme === "light-theme" ? "Dark" : "Light"}
-                  </button>
                 </ul>
               </details>
               <Tooltip
