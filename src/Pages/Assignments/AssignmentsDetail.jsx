@@ -7,19 +7,28 @@ const AssignmentsDetail = () => {
   const [loading, setLoading] = useState(true);
   const [assignment, setAssignment] = useState([]);
   useEffect(() => {
-    axios
-      .get(`https://study-hard-server.vercel.app/assignments/${id}`, { withCredentials: true })
-      .then((res) => {
-        setAssignment(res.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-        setLoading(false); 
-      });
+    setLoading(true);
+    setTimeout(() => {
+      axios
+        .get(`https://study-hard-server.vercel.app/assignments/${id}`, {
+          withCredentials: true,
+        })
+        .then((res) => {
+          setAssignment(res.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.error(err);
+          setLoading(false);
+        });
+    }, 500); 
   }, [id]);
   if (loading) {
-    return <span className="loading loading-spinner loading-lg"></span>;
+    return (
+      <div className="w-full flex justify-center items-center mt-[120px] md:mt-[160px]">
+      <span className="loading loading-spinner loading-lg"></span>
+    </div>
+    );
   }
   return (
     <div className="max-w-[90rem] mx-auto">
