@@ -20,15 +20,17 @@ const Navbar = () => {
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
   };
+
   return (
-    <div>
-      <div className="navbar bg-[#E8FCD0] px-[10px] md:px-[30px] fixed top-0 z-50">
+    <div className="w-full">
+      <div className="navbar bg-[#E8FCD0] px-4 md:px-8 fixed top-0 z-50 shadow-md">
         <div className="navbar-start">
+          {/* Mobile menu */}
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -36,61 +38,70 @@ const Navbar = () => {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth="2"
+                  strokeWidth={2}
                   d="M4 6h16M4 12h8m-8 6h16"
                 />
               </svg>
-            </div>
+            </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow space-y-2"
             >
-              <NavLink to="/" className="font-medium mx-3 my-2">
+              <NavLink to="/" className="font-medium">
                 Home
               </NavLink>
-              <NavLink to="/assignments" className="font-medium mx-3 my-2">
+              <NavLink to="/assignments" className="font-medium">
                 Assignments
               </NavLink>
-              <NavLink to="/pending-assignments" className="font-medium mx-3 my-2">
+              <NavLink to="/pending-assignments" className="font-medium">
                 Pending Assignments
               </NavLink>
-              
-              <HashLink to="/#team" className="font-medium mx-3 my-2">
+              <HashLink to="/#team" className="font-medium">
                 Team
               </HashLink>
-              <button onClick={togglebutton} className=" theme-toggle-btn font-medium mx-3 my-2">
+              <button
+                onClick={togglebutton}
+                className="theme-toggle-btn font-medium"
+              >
                 {theme === "light-theme" ? "Dark" : "Light"}
               </button>
             </ul>
           </div>
-          <a className="text-xl font-bold">Studyhard</a>
+          <Link to="/" className="text-2xl font-bold tracking-tight">
+            Studyhard
+          </Link>
         </div>
+
+        {/* Desktop menu */}
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <div className="my-2">
-              <NavLink to="/" className="font-medium mx-3">
-                Home
-              </NavLink>
-              <NavLink to="/assignments" className="font-medium mx-3">
-                Assignments
-              </NavLink>
-              <NavLink to="/pending-assignments" className="font-medium mx-3">
-                Pending Assignments
-              </NavLink>
-              <HashLink to="/#team" className="font-medium mx-3">
-                Team
-              </HashLink>
-              <button onClick={togglebutton} className=" theme-toggle-btn font-medium mx-3">
-                {theme === "light-theme" ? "Dark" : "Light"}
-              </button>
-            </div>
+          <ul className="menu menu-horizontal px-1 space-x-4">
+            <NavLink to="/" className="font-medium">
+              Home
+            </NavLink>
+            <NavLink to="/assignments" className="font-medium">
+              Assignments
+            </NavLink>
+            <NavLink to="/pending-assignments" className="font-medium">
+              Pending Assignments
+            </NavLink>
+            <HashLink to="/#team" className="font-medium">
+              Team
+            </HashLink>
+            <button
+              onClick={togglebutton}
+              className="theme-toggle-btn font-medium"
+            >
+              {theme === "light-theme" ? "Dark" : "Light"}
+            </button>
           </ul>
         </div>
+
+        {/* User section */}
         <div className="navbar-end">
           {user && user?.email ? (
-            <div className="relative group flex justify-center items-center gap-2">
+            <div className="flex items-center gap-4">
               <details className="dropdown">
-                <summary className="btn bg-[#fff0] m-1">
+                <summary className="btn bg-transparent border-none px-0">
                   <img
                     src={user.photoURL}
                     alt={user.displayName}
@@ -99,9 +110,13 @@ const Navbar = () => {
                     data-tooltip-id="userTooltip"
                   />
                 </summary>
-                <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                  <NavLink to="/create-assignment" className="font-medium mx-3 my-2">Create Assignment</NavLink>
-                  <NavLink to="/my-assignment" className="font-medium mx-3 my-2">My Assignment</NavLink>
+                <ul className="menu dropdown-content bg-base-100 rounded-box w-52 p-2 shadow space-y-2">
+                  <NavLink to="/create-assignment" className="font-medium">
+                    Create Assignment
+                  </NavLink>
+                  <NavLink to="/my-assignment" className="font-medium">
+                    My Assignment
+                  </NavLink>
                 </ul>
               </details>
               <Tooltip
@@ -112,18 +127,21 @@ const Navbar = () => {
               />
               <button
                 onClick={logout}
-                className="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600"
+                className="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600 transition"
               >
                 Logout
               </button>
             </div>
           ) : (
-            <div className="flex gap-3">
-              <Link to="/login">
-                <a className="btn bg-[#191A23] text-white">Log In</a>
+            <div className="flex gap-2 md:gap-3">
+              <Link to="/login" className="btn bg-[#191A23] text-white btn-sm">
+                Log In
               </Link>
-              <Link to="/register">
-                <a className="btn btn-outline text-black">Register</a>
+              <Link
+                to="/register"
+                className="btn btn-outline text-black btn-sm border-black"
+              >
+                Register
               </Link>
             </div>
           )}
