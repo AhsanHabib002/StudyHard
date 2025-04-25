@@ -3,8 +3,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const AsignmentCard = ({ assignment }) => {
+const AssignmentCard = ({ assignment }) => {
   const { _id, title, thumbnail, marks, difficulty } = assignment;
+
   const handleDelete = () => {
     Swal.fire({
       title: "Are you sure?",
@@ -27,7 +28,7 @@ const AsignmentCard = ({ assignment }) => {
               Swal.fire("Failed!", response.data.message, "error");
             }
           })
-          .catch((error) => {
+          .catch(() => {
             Swal.fire(
               "Error!",
               "Failed to delete assignment. Try again later.",
@@ -37,40 +38,50 @@ const AsignmentCard = ({ assignment }) => {
       }
     });
   };
-  return (
-    <div>
-      <div className="card card-compact bg-base-100 shadow-xl">
-        <figure>
-          <img
-            className="w-full h-[200px] object-cover"
-            src={thumbnail}
-            alt="Assignment Image"
-          />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title h-[50px]">{title}</h2>
-          <p>Difficultly: {difficulty}</p>
-          <p>Mark: {marks}</p>
-          <div className="card-actions grid grid-cols-1 md:grid-cols-2">
-            <Link to={`/update-assignment/${_id}`}>
-              <button className="btn bg-[#ACCDFF] w-full">Update</button>
-            </Link>
 
-            <button onClick={handleDelete} className="btn w-full bg-[#F85959]">
-              Delete
-            </button>
-          </div>
-          <div className="card-actions flex">
-            <Link to={`/assignments/${_id} `} className="w-full">
-              <button className="btn w-full bg-[#B9FF66]">
-                View Assignment
-              </button>
-            </Link>
-          </div>
+  return (
+    <div className="bg-white shadow-lg rounded-xl overflow-hidden transition-transform hover:scale-[1.02] duration-300">
+      <img
+        src={thumbnail}
+        alt="Assignment"
+        className="w-full h-[200px] object-cover"
+      />
+
+      <div className="p-5 flex flex-col gap-4">
+        <div>
+          <h3 className="text-xl font-semibold text-[#191A23] h-[60px] leading-tight line-clamp-2">
+            {title}
+          </h3>
+          <p className="text-sm text-gray-600 mt-1">
+            <span className="font-medium">Difficulty:</span> {difficulty}
+          </p>
+          <p className="text-sm text-gray-600">
+            <span className="font-medium">Marks:</span> {marks}
+          </p>
         </div>
+
+        <div className="grid grid-cols-2 gap-2">
+          <Link to={`/update-assignment/${_id}`}>
+            <button className="w-full py-2 bg-blue-200 hover:bg-blue-300 text-[#191A23] font-semibold rounded-lg transition">
+              Update
+            </button>
+          </Link>
+          <button
+            onClick={handleDelete}
+            className="w-full py-2 bg-red-400 hover:bg-red-500 text-white font-semibold rounded-lg transition"
+          >
+            Delete
+          </button>
+        </div>
+
+        <Link to={`/assignments/${_id}`}>
+          <button className="w-full py-2 bg-[#B9FF66] hover:bg-[#a3f348] text-[#191A23] font-semibold rounded-lg transition">
+            View Assignment
+          </button>
+        </Link>
       </div>
     </div>
   );
 };
 
-export default AsignmentCard;
+export default AssignmentCard;
